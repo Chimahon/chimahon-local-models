@@ -15,14 +15,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build model archive
+      - name: Build model archives
         run: |
           mkdir -p dist
           zip -r dist/models.zip screenai_models/
+          cd paddleocr/small && zip -r ../../dist/paddleocr-small.zip models lib && cd ../..
+          cd paddleocr/medium && zip -r ../../dist/paddleocr-medium.zip models lib && cd ../..
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event.inputs.version }}
           name: "Models ${{ github.event.inputs.version }}"
-          files: dist/models.zip
+          files: |
+            dist/models.zip
+            dist/paddleocr-small.zip
+            dist/paddleocr-medium.zip
