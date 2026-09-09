@@ -1,11 +1,12 @@
 # chimahon-local-models
 
-Prebuilt TFLite models and protobuf configs for the on-device Lens OCR engine used by Chimahon.
+Downloadable on-device OCR payloads used by Chimahon.
 
 ## Structure
 
 ```
-screenai_models/   # TFLite models, protobuf configs, LM FSTs
+screenai_models/   # Lens OCR: TFLite models, protobuf configs, LM FSTs (-> models.zip)
+paddle_ocr/        # Paddle OCR: PP-OCRv6 manga NCNN models + prebuilt libpaddle_ocr.so per ABI (-> paddle-ocr.zip)
 ```
 
 ## Release

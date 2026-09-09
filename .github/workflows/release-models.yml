@@ -19,8 +19,7 @@ jobs:
         run: |
           mkdir -p dist
           zip -r dist/models.zip screenai_models/
-          cd paddleocr/small && zip -r ../../dist/paddleocr-small.zip models lib && cd ../..
-          cd paddleocr/medium && zip -r ../../dist/paddleocr-medium.zip models lib && cd ../..
+          zip -r dist/paddle-ocr.zip paddle_ocr/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -29,5 +28,4 @@ jobs:
           name: "Models ${{ github.event.inputs.version }}"
           files: |
             dist/models.zip
-            dist/paddleocr-small.zip
-            dist/paddleocr-medium.zip
+            dist/paddle-ocr.zip
